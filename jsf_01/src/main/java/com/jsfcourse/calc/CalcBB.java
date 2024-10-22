@@ -5,20 +5,21 @@ import jakarta.inject.Named;
 
 import java.io.Serializable;
 
-import jakarta.enterprise.context.RequestScoped;
 import jakarta.enterprise.context.SessionScoped;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 
 @Named
-//@RequestScoped
 @SessionScoped
 public class CalcBB implements Serializable{
-	private double amount;//kwota
-	private double interestRate;//oprocentowanie
-	private int period;//okres
+	private double amount;
+	private double interestRate;
+	private int period;
 	private Double result;
 	private Double fullResult;
+
+	@Inject
+	FacesContext ctx;
 	
 	public double getAmount() {
 		return amount;
@@ -47,10 +48,6 @@ public class CalcBB implements Serializable{
 	public Double getResult() {
 		return result;
 	}
-
-	public void setResult(Double result) {
-		this.result = result;
-	}
 	
 	public Double getFullResult() {
 		return fullResult;
@@ -59,9 +56,6 @@ public class CalcBB implements Serializable{
 	public void setFullResult(Double fullResult) {
 		this.fullResult = fullResult;
 	}
-
-	@Inject
-	FacesContext ctx;
 
 	public boolean calculate() {
 		try {
