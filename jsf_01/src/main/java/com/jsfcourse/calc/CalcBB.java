@@ -60,11 +60,12 @@ public class CalcBB implements Serializable{
 	public boolean calculate() {
 		try {
 			result =  amount * (interestRate/100)*(period/12);
+			result = (double) Math.round(result*100)/100;
 			setFullResult(result + amount);
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacja wykonana poprawnie.", null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacja wykonana poprawnie.",""));
 			return true;
 		}catch (Exception e){
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Błąd podczas wykonywania operacji.", null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Błąd podczas wykonywania operacji.", ""));
 			return false;
 		}
 	}
@@ -79,8 +80,8 @@ public class CalcBB implements Serializable{
 
 	public String calculateAjax() {
 		if(calculate()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Zysk: " + result, null));
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Pełna kwota: " + fullResult, null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Zysk: ", Double.toString(result)));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Pełna kwota: ",Double.toString(fullResult)));
 			}
 			return null;
 	}
