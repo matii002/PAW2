@@ -15,8 +15,8 @@ public class CalcBB implements Serializable{
 	private double amount;
 	private double interestRate;
 	private int period;
-	private Double result;
-	private Double fullResult;
+	private double result;
+	private double fullResult;
 
 	@Inject
 	FacesContext ctx;
@@ -45,15 +45,15 @@ public class CalcBB implements Serializable{
 		this.period = period;
 	}
 
-	public Double getResult() {
+	public double getResult() {
 		return result;
 	}
 	
-	public Double getFullResult() {
+	public double getFullResult() {
 		return fullResult;
 	}
 
-	public void setFullResult(Double fullResult) {
+	public void setFullResult(double fullResult) {
 		this.fullResult = fullResult;
 	}
 
@@ -62,10 +62,10 @@ public class CalcBB implements Serializable{
 			result =  amount * (interestRate/100)*(period/12);
 			result = (double) Math.round(result*100)/100;
 			setFullResult(result + amount);
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacja wykonana poprawnie.",""));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacja wykonana poprawnie.", null));
 			return true;
 		}catch (Exception e){
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Błąd podczas wykonywania operacji.", ""));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Błąd podczas wykonywania operacji.", null));
 			return false;
 		}
 	}
@@ -80,8 +80,8 @@ public class CalcBB implements Serializable{
 
 	public String calculateAjax() {
 		if(calculate()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Zysk: ", Double.toString(result)));
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Pełna kwota: ",Double.toString(fullResult)));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Zysk: " + Double.toString(result), null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Pełna kwota: " + Double.toString(fullResult), null));
 			}
 			return null;
 	}

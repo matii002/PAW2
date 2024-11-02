@@ -14,16 +14,17 @@
 		<h:form id="bla">
 			<h:panelGrid id="grid" columns="2" cellpadding="5" cellspacing="10">
 					<h:outputLabel for="amount" value="Kwota:"/>
-					<p:inputText id="amount" value="#{calcBB.amount}" required="true" requiredMessage="Nie podano kwoty." validatorMessage="Minimalna kwota to 100zł">
+					<p:inputText id="amount" value="#{calcBB.amount}" required="true" requiredMessage="Nie podano kwoty." validatorMessage="Minimalna kwota to 100zł"  converterMessage="Niepoprawna kwota.">
 						<f:validateDoubleRange minimum="100.0"/>
 					</p:inputText>
 		  			<h:outputLabel for="period" value="Okres lokaty (miesiące):"/>
-		  			<p:inputText id="period" value="#{calcBB.period}"  required="true" requiredMessage="Nie podano okresu lokaty." validatorMessage="Okres lokaty: 12-48 miesiecy.">
+		  			<p:inputText id="period" value="#{calcBB.period}"  required="true" requiredMessage="Nie podano okresu lokaty." validatorMessage="Okres lokaty: 12-48 miesiecy." converterMessage="Niepoprawny okres lokaty.">
 		  				<f:validateLongRange minimum="12" maximum="48"/>
 		  			</p:inputText>
 		  		
 		  			<h:outputLabel for="interestRate" value="Oprocentowanie"/>
-					<p:inputText id="interestRate" value="#{calcBB.interestRate}" required="true" requiredMessage="Nie podano oprocentowania." validatorMessage="Wartość oprocentowania: 1%-100%">
+					<p:inputText id="interestRate" value="#{calcBB.interestRate}" required="true" requiredMessage="Nie podano oprocentowania."
+						 validatorMessage="Wartość oprocentowania: 1%-100%" converterMessage="Niepoprawne oprocentowanie.">
 						<f:validateDoubleRange minimum="1" maximum="100"/>
 					</p:inputText>
 			
@@ -31,7 +32,7 @@
 					<p:commandButton value="Oblicz (AJAX)" action="#{calcBB.calculateAjax()}" update="msg"/>
 			</h:panelGrid>
 			<h:commandLink value="Informacje" action="#{calcBB.info()}" />
-			<p:growl id="msg" showDetail="true" sticky="true" />
+			<p:growl id="msg" sticky="true" />
 		</h:form>
 	</p:panel>
 
