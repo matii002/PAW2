@@ -1,0 +1,17 @@
+@charset "UTF-8";
+#header{
+margin: 0.5em;
+color: white; 
+background-color:#323232; 
+border-radius: 3px; 
+padding: 2%;	
+text-align:center;
+}
+
+#footer{
+margin: 1em;
+color: white; 
+background-color:#323232; 
+border-radius: 3px; 
+padding: 5%;	
+}

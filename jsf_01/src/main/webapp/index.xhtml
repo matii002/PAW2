@@ -6,35 +6,14 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Kalkulator odsetek</title>
+	<ui:include src="/templates/header-snippet.xhtml">
+		<ui:param name="title" value="Kalkulator odsetek" />
+	</ui:include>
 </h:head>
 <h:body>
-
-	<p:panel header="Kalkulator odsetek" style="margin: 1em" toggleable="true">
-		<h:form id="bla">
-			<h:panelGrid id="grid" columns="2" cellpadding="5" cellspacing="10">
-					<h:outputLabel for="amount" value="Kwota:"/>
-					<p:inputText id="amount" value="#{calcBB.amount}" required="true" requiredMessage="Nie podano kwoty." validatorMessage="Minimalna kwota to 100zł"  converterMessage="Niepoprawna kwota.">
-						<f:validateDoubleRange minimum="100.0"/>
-					</p:inputText>
-		  			<h:outputLabel for="period" value="Okres lokaty (miesiące):"/>
-		  			<p:inputText id="period" value="#{calcBB.period}"  required="true" requiredMessage="Nie podano okresu lokaty." validatorMessage="Okres lokaty: 12-48 miesiecy." converterMessage="Niepoprawny okres lokaty.">
-		  				<f:validateLongRange minimum="12" maximum="48"/>
-		  			</p:inputText>
-		  		
-		  			<h:outputLabel for="interestRate" value="Oprocentowanie"/>
-					<p:inputText id="interestRate" value="#{calcBB.interestRate}" required="true" requiredMessage="Nie podano oprocentowania."
-						 validatorMessage="Wartość oprocentowania: 1%-100%" converterMessage="Niepoprawne oprocentowanie.">
-						<f:validateDoubleRange minimum="1" maximum="100"/>
-					</p:inputText>
-			
-					<p:commandButton value="Oblicz" action="#{calcBB.calc()}" update="@form"/>
-					<p:commandButton value="Oblicz (AJAX)" action="#{calcBB.calculateAjax()}" update="msg"/>
-			</h:panelGrid>
-			<h:commandLink value="Informacje" action="#{calcBB.info()}" />
-			<p:growl id="msg" sticky="true" />
-		</h:form>
-	</p:panel>
-
+ 	<ui:include src="/templates/content-template.xhtml"/>
+ 	<ui:include src="/templates/footer-snippet.xhtml">
+ 		<ui:param name="footer" value="Kalkulator odsetek pozwala na szybkie obliczenie zysków z lokaty, uwzględniając kwotę, okres oraz oprocentowanie. Dzięki temu narzędziu użytkownicy mogą łatwo sprawdzić, ile odsetek uzyskają na koniec okresu oszczędnościowego, co pomaga w podjęciu decyzji o wyborze odpowiedniego produktu finansowego. Idealne dla osób planujących inwestycje."/>
+ 	</ui:include>
 </h:body>
 </html>
