@@ -6,14 +6,9 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<ui:include src="/templates/header-snippet.xhtml">
-		<ui:param name="title" value="Kalkulator odsetek" />
-	</ui:include>
 </h:head>
 <h:body>
- 	<ui:include src="/templates/content-template.xhtml"/>
- 	<ui:include src="/templates/footer-snippet.xhtml">
- 		<ui:param name="footer" value="Kalkulator odsetek pozwala na szybkie obliczenie zysków z lokaty, uwzględniając kwotę, okres oraz oprocentowanie. Dzięki temu narzędziu użytkownicy mogą łatwo sprawdzić, ile odsetek uzyskają na koniec okresu oszczędnościowego, co pomaga w podjęciu decyzji o wyborze odpowiedniego produktu finansowego. Idealne dla osób planujących inwestycje."/>
- 	</ui:include>
+	<ui:composition template="/templates/main-template.xhtml">
+	</ui:composition>
 </h:body>
 </html>

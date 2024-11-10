@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<ui:insert name="header">
+		<ui:include src="/templates/header-snippet.xhtml">
+			<ui:param name="title" value="Kalkulator odsetek" />
+		</ui:include>
+	</ui:insert>
+</h:head>
+<h:body>
+	<ui:insert name="content">
+		<ui:include src="/templates/content-template.xhtml" />
+	</ui:insert>
+
+	<ui:insert name="footer">
+		<ui:include src="/templates/footer-snippet.xhtml">
+			<ui:param name="footer"
+				value="Kalkulator odsetek pozwala na szybkie obliczenie zysków z lokaty, uwzględniając kwotę, okres oraz oprocentowanie. Dzięki temu narzędziu użytkownicy mogą łatwo sprawdzić, ile odsetek uzyskają na koniec okresu oszczędnościowego, co pomaga w podjęciu decyzji o wyborze odpowiedniego produktu finansowego. Idealne dla osób planujących inwestycje." />
+		</ui:include>
+	</ui:insert>
+</h:body>
+</html>
